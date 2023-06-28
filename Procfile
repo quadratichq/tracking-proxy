@@ -1,1 +1,1 @@
-web: bin/start-nginx bin/nginx -c nginx.conf -p 80
+web: bin/start-nginx nginx -p . -c nginx.conf
