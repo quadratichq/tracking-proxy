@@ -1,1 +1,1 @@
-web: bin/start-nginx nginx -p . -c nginx.conf
+web: bin/start-nginx-solo -c nginx.conf
