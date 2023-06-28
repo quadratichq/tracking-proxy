@@ -1,1 +1,1 @@
-web: bin/start-nginx -p . -c nginx.conf
+web: bin/start-nginx bundle exec unicorn -c nginx.conf
