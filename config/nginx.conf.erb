@@ -1,3 +1,7 @@
+# Everything in this file is copied from the buildpack config file
+# https://github.com/heroku/heroku-buildpack-nginx/blob/main/config/nginx-solo-sample.conf.erb
+# Except for line 42, which is commented out and instead we use mixpanel's nginx routes
+
 daemon off;
 # Heroku dynos have at least 4 cores.
 worker_processes <%= ENV['NGINX_WORKERS'] || 4 %>;
@@ -35,6 +39,9 @@ http {
 		client_max_body_size <%= ENV['NGINX_CLIENT_MAX_BODY_SIZE'] || 1 %>M;
 
 		# root /app/public; # path to your app
+
+		# Copy/pasted from Mixpanel's nginx.conf file 
+                # https://github.com/mixpanel/tracking-proxy
 		location /lib.min.js {
 	            proxy_set_header X-Real-IP $http_x_forwarded_for;
 	            proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
